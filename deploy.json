@@ -827,10 +827,7 @@
                       "*"
                     ],
                     "targetFqdns": [
-                      "www.google.com",
-                      "www.bing.com",
-                      "google.com",
-                      "bing.com"
+                      "*"
                     ],
                     "fqdnTags": [],
                     "ruleConditionType": "ApplicationRuleCondition"
