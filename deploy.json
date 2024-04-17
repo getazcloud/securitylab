@@ -515,7 +515,8 @@
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIpAddresses', variables('publicIpAddressName1'))]",
         "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('VN-Name1'), variables('VN-Name1Subnet2Name'))]",
-        "[resourceId('Microsoft.Network/firewallPolicies', variables('firewallPolicyName'))]"
+        "[resourceId('Microsoft.Network/firewallPolicies', variables('firewallPolicyName'))]",
+        "[resourceId('Microsoft.Network/applicationGateways', variables('AG-Name'))]"
       ],
       "tags": {},
       "properties": {
