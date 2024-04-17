@@ -1,0 +1,5 @@
+admin1
+administrator
+admin
+a' or '1'--
+a or 1 --
