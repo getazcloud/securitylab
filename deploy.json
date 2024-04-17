@@ -1671,7 +1671,7 @@
           ]
         },
         "osProfile": {
-          "computerName": "[variables('VM-Name2')]",
+          "computerName": "[variables('VM-Name3')]",
           "adminUsername": "[parameters('DefaultUserName')]",
           "adminPassword": "[parameters('DefaultPassword')]",
           "windowsConfiguration": {
