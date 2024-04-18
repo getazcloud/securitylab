@@ -965,7 +965,7 @@
                 "id": "[concat(variables('applicationGatewayId'), '/frontendIPConfigurations/appGwPublicFrontendIp')]"
               },
               "frontendPort": {
-                "id": "[concat(variables('applicationGatewayId'), '/frontendPorts/port_9080')]"
+                "id": "[concat(variables('applicationGatewayId'), '/frontendPorts/port_9082')]"
               },
               "protocol": "Http"
             }
