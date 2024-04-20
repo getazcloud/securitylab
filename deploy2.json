@@ -769,15 +769,16 @@
                     "ruleConditionType": "NetworkRuleCondition"
                   },
                   {
-                    "name": "Kali-HTTP",
+                    "name": "VM_OUT_ANY",
                     "ipProtocols": [
                       "TCP"
                     ],
                     "destinationPorts": [
-                      "80"
+                      "*"
                     ],
-                    "sourceAddresses": [
-                      "[variables('NIC-Name2Ipaddress')]"
+                    "sourceAddresses": [                      
+                      "[variables('NIC-Name2Ipaddress')]",
+                      "[variables('NIC-Name3Ipaddress')]"
                     ],
                     "destinationAddresses": [
                       "*"
@@ -969,6 +970,18 @@
               },
               "protocol": "Http"
             }
+          },
+          {
+            "name": "Private-HTTP",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[concat(variables('applicationGatewayId'), '/frontendIPConfigurations/appGwPrivateFrontendIp')]"
+              },
+              "frontendPort": {
+                "id": "[concat(variables('applicationGatewayId'), '/frontendPorts/port_9082')]"
+              },
+              "protocol": "Http"
+            }
           }
         ],
         "requestRoutingRules": [
@@ -978,6 +991,21 @@
               "RuleType": "Basic",
               "httpListener": {
                 "id": "[concat(variables('applicationGatewayId'), '/httpListeners/Public-HTTP')]"
+              },
+              "backendAddressPool": {
+                "id": "[concat(variables('applicationGatewayId'), '/backendAddressPools/PAAS-APP')]"
+              },
+              "backendHttpSettings": {
+                "id": "[concat(variables('applicationGatewayId'), '/backendHttpSettingsCollection/Default')]"
+              }
+            }
+          },
+          {
+            "Name": "PrivateIPRule",
+            "properties": {
+              "RuleType": "Basic",
+              "httpListener": {
+                "id": "[concat(variables('applicationGatewayId'), '/httpListeners/Private-HTTP')]"
               },
               "backendAddressPool": {
                 "id": "[concat(variables('applicationGatewayId'), '/backendAddressPools/PAAS-APP')]"
@@ -1097,7 +1125,7 @@
         "policySettings": {
           "fileUploadLimitInMb": 100,
           "maxRequestBodySizeInKb": 128,
-          "mode": "Prevention",
+          "mode": "Detection",
           "requestBodyCheck": true,
           "state": "Enabled"
         },
