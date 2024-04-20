@@ -101,17 +101,6 @@
       }
     },
     {
-      "type": "Microsoft.OperationalInsights/workspaces/tables",
-      "apiVersion": "2021-12-01-preview",
-      "name": "[format('{0}/{1}', variables('workspaceName'), 'Heartbeat')]",
-      "properties": {
-        "retentionInDays": 30
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.OperationalInsights/workspaces', variables('workspaceName'))]"
-      ]
-    },
-    {
       "name": "[variables('VN-Name1')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[resourceGroup().location]",
