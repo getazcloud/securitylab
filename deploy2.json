@@ -1089,7 +1089,7 @@
             ]
           },
           {
-            "name": "BlockInternetExplorer11",
+            "name": "BlockBrowser",
             "priority": 30,
             "ruleType": "MatchRule",
             "action": "Block",
@@ -1104,7 +1104,7 @@
                 "operator": "Contains",
                 "negationConditon": false,
                 "matchValues": [
-                  "rv:11.0"
+                  "Chrome"
                 ],
                 "transforms": []
               }
